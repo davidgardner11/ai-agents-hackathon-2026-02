@@ -1,3 +1,5 @@
+```mermaid
+
 sequenceDiagram
     participant U as USER
     participant L as LISTENER<br/>(continuous)
@@ -22,5 +24,6 @@ sequenceDiagram
     AI->>AI: convert text string into system commands<br/>add to a list (FIFO queue) (queue) in memory
 
     AI->>SC: pass list of commands
+```
 
     SC->>B: [play video] [see video] "play"
