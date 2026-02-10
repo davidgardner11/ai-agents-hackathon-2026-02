@@ -10,21 +10,21 @@ sequenceDiagram
 
     Note over L: Passive listening
     U->>L: "Hey Jarvis..."
-    L->>L: trigger to start active listening for commands
-    U->>L: "...play the video and turn up the volume by 20%."
-
+    L->>L: start active listening for commands
     L->>AT: start streaming audio to AUDIO TRANSCRIBER
-    AT->>AT: start converting to text
+
+    U->>L: "...play the video and turn up the volume by 20%."
+    AT->>AT: convert audio to text
 
     Note over L: 2 seconds of silence
-    L->>L: trigger to stop active listening, go into stand-by mode
+    L->>L: stop active listening, go into stand-by mode
     L->>AT: stop streaming audio
 
 
     AT->>AI: pass text to AI INTERPRETER
-    Note over L: stand-by mode: all listening on hold
+    Note over L: stand-by mode - listening on hold
 
-    AI->>AI: convert text into system commands<br/>add system commands to FIFO queue
+    AI->>AI: interpret text and convert into<br/> system commands, then add<br/> system commands to FIFO queue
 
     AI->>SC: pass FIFO queue to SYSTEM COMMANDER
 
@@ -33,6 +33,5 @@ sequenceDiagram
     SC->>B: [turn up volume 20%]
 
     SC->>L: notify LISTENER to restart passive listening
-    Note over L: Restart passive listening
 
 ```
