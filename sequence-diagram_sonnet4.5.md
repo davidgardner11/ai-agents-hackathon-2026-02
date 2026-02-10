@@ -2,7 +2,7 @@
 
 sequenceDiagram
     participant USER
-    participant LISTENER<br/>(continuous)
+    participant LISTENER<br/>
     participant AUDIO<br/>TRANSCRIBER
     participant AI<br/>INTERPRETER
     participant SYSTEM<br/>COMMANDER
